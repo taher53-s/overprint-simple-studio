@@ -1,0 +1,221 @@
+{
+  "inputs": {
+    "targets": [
+      "#EE653A",
+      "#DF704D",
+      "#2D488B",
+      "#3D5692",
+      "#E9BF44",
+      "#EFCA5A",
+      "#2D332B",
+      "#3A4036"
+    ],
+    "inks": [
+      {
+        "name": "Vermilion",
+        "hex": "#EC6033",
+        "cost": 1.9
+      },
+      {
+        "name": "Cobalt",
+        "hex": "#2D488B",
+        "cost": 2.1
+      },
+      {
+        "name": "Marigold",
+        "hex": "#E9BF44",
+        "cost": 1.5
+      },
+      {
+        "name": "Carbon",
+        "hex": "#2D332B",
+        "cost": 1.1
+      },
+      {
+        "name": "Moss",
+        "hex": "#69704A",
+        "cost": 1.6
+      },
+      {
+        "name": "Brick",
+        "hex": "#A94738",
+        "cost": 1.4
+      },
+      {
+        "name": "Rose",
+        "hex": "#D88C9E",
+        "cost": 2.2
+      },
+      {
+        "name": "Lilac",
+        "hex": "#8C86B5",
+        "cost": 1.9
+      },
+      {
+        "name": "Teal",
+        "hex": "#3B8583",
+        "cost": 1.8
+      },
+      {
+        "name": "Warm grey",
+        "hex": "#ADA697",
+        "cost": 1
+      },
+      {
+        "name": "Plum",
+        "hex": "#6E3D5F",
+        "cost": 1.9
+      },
+      {
+        "name": "Ultramarine",
+        "hex": "#474AC5",
+        "cost": 2.4
+      }
+    ],
+    "tolerance": 18,
+    "maxInks": 4,
+    "review": 3,
+    "seed": 2409540
+  },
+  "result": {
+    "targets": [
+      "#EE653A",
+      "#DF704D",
+      "#2D488B",
+      "#3D5692",
+      "#E9BF44",
+      "#EFCA5A",
+      "#2D332B",
+      "#3A4036"
+    ],
+    "inputCount": 8,
+    "duplicatesRemoved": 0,
+    "selected": [
+      {
+        "hex": "#2D332B",
+        "index": 3,
+        "cost": 1.1
+      },
+      {
+        "hex": "#E9BF44",
+        "index": 2,
+        "cost": 1.5
+      },
+      {
+        "hex": "#EC6033",
+        "index": 0,
+        "cost": 1.9
+      },
+      {
+        "hex": "#2D488B",
+        "index": 1,
+        "cost": 2.1
+      }
+    ],
+    "mappings": [
+      {
+        "index": 0,
+        "source": "#EE653A",
+        "ink": "#EC6033",
+        "deltaE": 2.7197857377359966,
+        "covered": true
+      },
+      {
+        "index": 1,
+        "source": "#DF704D",
+        "ink": "#EC6033",
+        "deltaE": 16.85717358349068,
+        "covered": true
+      },
+      {
+        "index": 2,
+        "source": "#2D488B",
+        "ink": "#2D488B",
+        "deltaE": 0.0,
+        "covered": true
+      },
+      {
+        "index": 3,
+        "source": "#3D5692",
+        "ink": "#2D488B",
+        "deltaE": 7.8077671815980905,
+        "covered": true
+      },
+      {
+        "index": 4,
+        "source": "#E9BF44",
+        "ink": "#E9BF44",
+        "deltaE": 0.0,
+        "covered": true
+      },
+      {
+        "index": 5,
+        "source": "#EFCA5A",
+        "ink": "#E9BF44",
+        "deltaE": 6.715960401003821,
+        "covered": true
+      },
+      {
+        "index": 6,
+        "source": "#2D332B",
+        "ink": "#2D332B",
+        "deltaE": 0.0,
+        "covered": true
+      },
+      {
+        "index": 7,
+        "source": "#3A4036",
+        "ink": "#2D332B",
+        "deltaE": 5.916515627936092,
+        "covered": true
+      }
+    ],
+    "uncovered": [],
+    "cost": 6.6,
+    "baselineCost": 6.6,
+    "baselineInks": 4,
+    "feasible": true,
+    "withinPressLimit": true,
+    "maxInks": 4,
+    "tolerance": 18.0,
+    "review": [
+      1,
+      3,
+      5
+    ],
+    "rankedReview": [
+      1,
+      3,
+      5
+    ],
+    "selectionMethod": "randomized",
+    "reviewThreshold": 6.715960401003821,
+    "p90": 16.85717358349068,
+    "partitions": 2,
+    "comparisons": 11,
+    "seed": 2409540,
+    "trace": [
+      {
+        "hex": "#2D332B",
+        "gain": 2,
+        "ratio": 0.55
+      },
+      {
+        "hex": "#E9BF44",
+        "gain": 2,
+        "ratio": 0.75
+      },
+      {
+        "hex": "#EC6033",
+        "gain": 2,
+        "ratio": 0.95
+      },
+      {
+        "hex": "#2D488B",
+        "gain": 2,
+        "ratio": 1.05
+      }
+    ],
+    "elapsedMs": 6.637428
+  }
+}

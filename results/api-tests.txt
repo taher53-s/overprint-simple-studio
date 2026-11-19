@@ -1,0 +1,21 @@
+PASS Health endpoint identifies Java backend
+PASS Static resource /
+PASS Static resource /style.css
+PASS Static resource /app.js
+PASS Static resource /artwork.js
+PASS Poster reaches a feasible four-ink plan
+PASS Review has exactly three unique colors
+PASS Every reported covered assignment meets threshold
+PASS Infeasible palette exposes every uncovered color and null quantile
+PASS Duplicates consolidated without losing colors
+PASS Zero tolerance exact matches all have zero error
+PASS Press budget warning is independent from coverage
+PASS Six invalid request classes return structured 400 errors
+PASS Wrong method returns 405
+PASS Wrong content type returns 415
+PASS Oversized body returns 413
+PASS Repeated form keys rejected
+PASS Missing files and directory traversal not served
+PASS Benchmark endpoint contains three measured sizes
+
+19 HTTP integration checks passed.

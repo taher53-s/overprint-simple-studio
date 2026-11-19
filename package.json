@@ -1,0 +1,1 @@
+{"name":"overprint","version":"1.0.0","private":true,"description":"Java-powered ink palette planning studio","scripts":{"dev":"ECJ_JAR=/workspace/tools/ecj.jar HOST=0.0.0.0 ./run.sh serve"}}

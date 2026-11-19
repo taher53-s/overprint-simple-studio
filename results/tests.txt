@@ -1,0 +1,25 @@
+OVERPRINT verification
+Java 21.0.13
+PASS SC01 empty universe costs zero
+PASS SC02 a shared ink is cheaper than two single inks
+PASS SC03 weighted choice uses cost per newly covered color
+PASS SC04 infeasible colors are explicitly returned
+PASS SC05 equal ratios follow candidate order
+PASS SC06 empty candidate bank leaves all colors uncovered
+PASS SC07 invalid costs and dimensions rejected
+PASS SC08 explicit counterexample prevents an optimality claim
+PASS SC09 200 seeded instances checked against exhaustive optimum and harmonic bound
+PASS QS01 singleton boundary
+PASS QS02 minimum and maximum ranks
+PASS QS03 duplicate values preserve rank semantics
+PASS QS04 all equal values terminate in one partition
+PASS QS05 sorted and reversed arrays
+PASS QS06 input preserved and seed reproducible
+PASS QS07 empty, out-of-range and non-finite input rejected
+PASS QS08 1000 random arrays compared with independent full-sort oracle
+PASS CM01 black, white and published D65 red reference
+PASS API01 duplicate targets consolidated; exact top-k ties remain deterministic
+PASS API02 no eligible inks gives no fabricated proof or quantile
+PASS API03 infeasible coverage and press budget are distinct
+PASS API04 malformed, empty, duplicate and infinite inputs rejected
+22 named checks passed, including 1200 oracle cases.
