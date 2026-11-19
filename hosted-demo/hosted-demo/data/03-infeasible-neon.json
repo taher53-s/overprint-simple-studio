@@ -1,0 +1,74 @@
+{
+  "targets": [
+    "#00FF00",
+    "#FF00FF",
+    "#00FFFF",
+    "#0000FF"
+  ],
+  "inks": [
+    {
+      "name": "Vermilion",
+      "hex": "#EC6033",
+      "cost": 1.9
+    },
+    {
+      "name": "Cobalt",
+      "hex": "#2D488B",
+      "cost": 2.1
+    },
+    {
+      "name": "Marigold",
+      "hex": "#E9BF44",
+      "cost": 1.5
+    },
+    {
+      "name": "Carbon",
+      "hex": "#2D332B",
+      "cost": 1.1
+    },
+    {
+      "name": "Moss",
+      "hex": "#69704A",
+      "cost": 1.6
+    },
+    {
+      "name": "Brick",
+      "hex": "#A94738",
+      "cost": 1.4
+    },
+    {
+      "name": "Rose",
+      "hex": "#D88C9E",
+      "cost": 2.2
+    },
+    {
+      "name": "Lilac",
+      "hex": "#8C86B5",
+      "cost": 1.9
+    },
+    {
+      "name": "Teal",
+      "hex": "#3B8583",
+      "cost": 1.8
+    },
+    {
+      "name": "Warm grey",
+      "hex": "#ADA697",
+      "cost": 1
+    },
+    {
+      "name": "Plum",
+      "hex": "#6E3D5F",
+      "cost": 1.9
+    },
+    {
+      "name": "Ultramarine",
+      "hex": "#474AC5",
+      "cost": 2.4
+    }
+  ],
+  "tolerance": 5,
+  "maxInks": 2,
+  "review": 3,
+  "seed": 2409540
+}

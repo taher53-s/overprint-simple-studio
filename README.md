@@ -161,7 +161,7 @@ Git history records actual implementation stages. The downloadable `history.bund
 git clone history.bundle overprint
 ```
 
-No public repository has been created. A public remote can be added later without losing the local history.
+This source package is published in the project’s Git repository. The bundled `history.bundle` preserves earlier implementation stages separately; inspect it with `git clone history.bundle overprint-history`.
 
 ## Limits worth understanding
 

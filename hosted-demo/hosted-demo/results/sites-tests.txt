@@ -1,0 +1,4 @@
+PASS: 125 plans match the Java backend (numeric tolerance 1e-9 relative).
+PASS: 600 Quickselect order statistics match full sorting.
+PASS: 6 invalid input classes rejected.
+PASS: Worker plan, asset, download, method, content-type, size and missing-route checks.

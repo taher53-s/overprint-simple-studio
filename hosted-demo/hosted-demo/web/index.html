@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="description" content="OVERPRINT is a design-led, interactive ink palette planner. Explore the trade-off between fewer inks and colour fidelity.">
+  <title>OVERPRINT — Less ink. More intent.</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/style.css">
+  <script src="/artwork.js" defer></script><script src="/app.js" defer></script><script src="/tour.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="/" aria-label="Overprint home"><span class="registration" aria-hidden="true">⊕</span> OVERPRINT<span class="trademark">™</span></a>
+    <nav aria-label="Main navigation"><button class="nav active" data-view="studio" aria-current="page">The studio</button><button class="nav" data-view="evidence">How it works</button><button class="nav" data-view="project">About</button><button id="start-tour" class="nav">Quick tour ↗</button><button id="watch-film" class="nav">Watch video ▷</button></nav>
+    <span class="edition">FEWER INKS. YOUR DESIGN.<br>EDITION 001 / 2026</span>
+  </header>
+  <main>
+    <section id="studio" class="view">
+      <div class="intro"><div><p class="eyebrow"><span class="tiny-cross">+</span> A COLOUR HELPER FOR PRINTING</p><h1>Less ink. <em>More intent.</em></h1></div><p class="intro-copy">Try fewer printing inks.<br>Compare the colours before and after.<br>You decide what still looks good.</p></div>
+      <div class="workspace-heading"><span><span class="status-dot" id="status-dot"></span><span id="engine-status">Connecting to planner…</span></span><span>01 — THE PRINT WORKBENCH</span><button id="load-demo" class="text-button">Reset studio ↗</button></div>
+      <div class="workbench">
+        <aside class="controls" aria-label="Print planning controls">
+          <section class="control-section"><div class="section-title"><span class="step">01</span><h2>Your colours</h2><span id="palette-count" class="count">08</span></div>
+            <p class="hint">Click a colour to change it, or try one of the examples below.</p>
+            <div id="palette-editor" class="palette-editor"></div>
+            <div class="input-actions"><button id="add-color" class="small-button">+ Add colour</button><label class="small-button file-button" for="palette-file">↑ Import colours<input type="file" id="palette-file" accept=".json,application/json"></label></div>
+            <label class="field-label" for="preset">TRY AN EXAMPLE</label><select id="preset"><option value="poster">01 / Less, but louder — poster</option><option value="packaging">02 / Sunday pantry — packaging</option><option value="neon">03 / Bright colours — hard to match</option></select>
+          </section>
+          <section class="control-section"><div class="section-title"><span class="step">02</span><h2>How close should it look?</h2></div>
+            <div class="slider-heading"><label for="tolerance">Allow colour change</label><output id="tolerance-value" for="tolerance">18</output></div>
+            <input id="tolerance" type="range" min="0" max="60" value="18" step="1"><div class="range-ends"><span>Keep colours close</span><span>Allow bigger changes</span></div>
+            <div class="two-fields"><label>Maximum inks<select id="max-inks"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>8</option><option>12</option><option>64</option></select></label><label>Colours to check<input id="review-count" type="number" min="1" max="256" value="3"></label></div>
+            <details class="advanced-settings"><summary>Advanced options</summary><label class="field-label" for="selection-method" style="margin-top:20px">REVIEW ALGORITHM</label><select id="selection-method"><option value="randomized">Randomized Quickselect</option><option value="deterministic">Median of Medians</option></select><p class="hint">Two computer methods for choosing which colours to check. Both should give the same result.</p></details><p class="hint">If the result needs too many inks, try allowing a little more colour change.</p>
+          </section>
+          <section class="control-section ink-section"><details><summary><span class="step">03</span><span>Available inks</span><span id="bank-count" class="count">12</span></summary><p class="hint">Tick the inks you can use. Cost is a relative setup weight, not a price quote.</p><div id="ink-bank"></div></details></section>
+          <div class="run-area"><button id="plan-button" class="primary">Find my ink plan <span>↗</span></button><p id="input-note" class="run-note" aria-live="polite">Choose colours. Compare the result. Save it.</p></div>
+        </aside>
+        <div class="proof-area">
+          <div class="proof-toolbar"><span class="eyebrow">COLOUR STUDY / <span id="study-label">01</span></span><div class="segmented" role="group" aria-label="Proof view"><button data-proof="original" aria-pressed="false">Before</button><button data-proof="reduced" class="selected" aria-pressed="true">After</button></div></div>
+          <div class="artboard-wrap"><div class="crop top-left"></div><div class="crop top-right"></div><div class="crop bottom-left"></div><div class="crop bottom-right"></div><div id="artboard" class="artboard" aria-label="Artwork colour proof"></div><div id="proof-overlay" hidden>Run the planner to build a proof.</div></div>
+          <div class="proof-caption"><span id="proof-caption">Suggested colour preview</span><span>ALWAYS CHECK A REAL TEST PRINT</span></div>
+          <div class="mapping-title"><span class="eyebrow">WHAT CHANGED</span><span class="hint">Before → after</span></div><div id="color-mapping" class="color-mapping"></div>
+        </div>
+        <aside class="ticket" aria-label="Planning result"><div class="ticket-heading"><span class="eyebrow">YOUR SUGGESTED INKS</span><span>↙</span></div>
+          <div id="result-status" class="result-status">Preparing the first study</div>
+          <div class="big-stat"><span id="selected-count">—</span><span class="stat-unit">inks<br>selected</span></div>
+          <p id="reduction-copy" class="ticket-copy">The palette decides the plan.</p>
+          <div id="chosen-inks" class="chosen-inks"></div>
+          <dl class="metrics"><div><dt>Colours matched</dt><dd id="coverage-value">—</dd></div></dl><details class="advanced-metrics"><summary>Detailed measurements</summary><dl class="metrics"><div><dt>Setup weight</dt><dd id="cost-value">—</dd></div><div><dt>Per-colour baseline</dt><dd id="baseline-value">—</dd></div><div><dt>90th-percentile shift</dt><dd id="p90-value">—</dd></div></dl></details>
+          <div class="review-block"><span class="eyebrow">CHECK THESE COLOURS</span><p>These changed the most. Check that you still like them.</p><div id="review-colors"></div></div>
+          <div id="plan-warning" class="warning" hidden></div>
+          <button id="export-svg" class="dark-button" disabled>Save poster (SVG) <span>↓</span></button><button id="export-json" class="text-button export-data" disabled>Save colours and settings ↓</button><button class="text-button see-logic" data-view="evidence">How does this work? ↗</button>
+        </aside>
+      </div>
+      <div class="studio-footnote"><span>01 / Choose your colours</span><span>02 / Compare and decide</span><p>This is an on-screen preview. Real paper and ink can look different.</p></div>
+    </section>
+    <section id="evidence" class="view" hidden>
+      <div class="intro"><div><p class="eyebrow">02 / UNDER THE INK</p><h1>Show <em>the working.</em></h1></div><p class="intro-copy">A few simple steps.<br>The computer suggests colours.<br>You make the final decision.</p></div>
+      <div class="plain-steps"><article class="panel"><span class="step">01</span><h2>Choose your colours.</h2><p>Start with the colours in your design. The example poster has eight. Tell the app which printing inks are available.</p></article><article class="panel"><span class="step">02</span><h2>Let similar colours share an ink.</h2><p>Two close shades of orange may both use the same orange ink. The app looks for a useful combination and shows any colours it cannot match.</p></article><article class="panel"><span class="step">03</span><h2>Decide if you like the result.</h2><p>Switch between Before and After. Check the colours that changed most. Adjust the slider, try again, then save the result.</p></article></div><details id="technical-details" class="technical-details"><summary>Explore the algorithms and test results</summary>
+      <div class="evidence-grid"><article class="panel"><span class="eyebrow">UNIT 5 / WEIGHTED SET COVER</span><h2>The next ink earns its place.</h2><p>For every unused ink, count the new colours it can cover within your tolerance. Pick the lowest <strong>cost ÷ new colours covered</strong>. Repeat until no more colours can be covered.</p><div id="trace-table"></div><p class="small-note">This is an approximation. For a feasible cover with positive costs, the greedy cost is bounded by Hₙ × optimum. The press limit is a separate check.</p></article>
+      <article class="panel"><span class="eyebrow">SELECTION / QUICKSELECT + MEDIAN OF MEDIANS</span><h2>Find the shifts worth checking.</h2><p>Choose randomized Quickselect or deterministic Median of Medians to find the top-k cutoff. Boundary ties follow source order. A binary max-heap then presents the chosen colours from largest to smallest shift.</p><div id="error-chart"></div><p id="selection-details" class="small-note"></p><p class="small-note">Quickselect: expected O(n), worst O(n²). Median of Medians: worst O(n). Max-heap: O(k) build + O(k log k) to order the review queue. Both selection implementations use O(n) extra space. Randomized Quickselect also computes p90 in either mode.</p></article></div>
+      <article class="panel benchmarks"><div class="panel-heading"><div><span class="eyebrow">REPRODUCIBLE EXPERIMENT / THREE SIZES</span><h2>Measure it. Don't decorate it.</h2></div><span class="stamp">RECORDED JAVA RUNS</span></div><p>Median timings from the supplied benchmark runner. Set cover trades more work for a coordinated ink choice; Quickselect is compared with a full sort.</p><div id="benchmark-table">Loading recorded benchmark results…</div><div id="benchmark-bars" class="benchmark-bars"></div><p id="benchmark-method" class="small-note"></p></article>
+      </details>
+    </section>
+    <section id="project" class="view" hidden><div class="intro"><div><p class="eyebrow">03 / THE IDEA</p><h1>Fewer inks. <em>Clearer decisions.</em></h1></div></div><div class="notes-grid"><article class="panel"><span class="eyebrow">BUILT FOR DESIGNERS</span><h2>Keep the character of your palette.</h2><p>Imagine a poster with eight colours. Could similar colours share one printing ink? OVERPRINT suggests a combination and shows what your poster could look like. You can change the settings until the result feels right.</p><p>Choose your colours, compare the before and after, check the biggest changes, then save the result. The detailed computer methods are available under How it works.</p><p>This version recolours the sample poster. It does not upload arbitrary artwork or predict exactly how a physical printer will behave.</p></article><article class="panel"><span class="eyebrow">THE PEOPLE</span><h2>Design meets algorithms.</h2><div class="team-member"><strong>Taher Sohagpurwala</strong><span>2409540</span></div><div class="team-member"><strong>Harsh Agrawal</strong></div><p>Advanced Algorithm · ATLAS uGDX · 2026–27</p><p class="small-note" id="runtime-description">The hosted studio runs a JavaScript implementation verified against the Java reference backend.</p></article></div></section>
+    <dialog id="tour-dialog" aria-labelledby="tour-title"><div class="tour-top"><span id="tour-step" class="eyebrow"></span><button id="tour-close" aria-label="Close tour">×</button></div><h2 id="tour-title"></h2><p id="tour-copy"></p><div class="tour-controls"><button id="tour-prev">← Back</button><button id="tour-next" class="primary">Next →</button></div></dialog>
+    <dialog id="film-dialog" aria-label="OVERPRINT product film"><button id="film-close" aria-label="Close film">Close ×</button><video id="promo-video" controls playsinline preload="none" poster="/promo-poster.jpg"><source src="/overprint-film.mp4" type="video/mp4"><track kind="captions" src="/promo.vtt" srclang="en" label="English"></video><details class="video-transcript"><summary>Read the video explanation</summary><p>Start with your poster colours. OVERPRINT suggests fewer printing inks by letting similar colours share an ink. Compare before and after. Choose how much colour change you allow. Check the biggest changes, then save the result. You make the final design decision.</p></details><p>OVERPRINT / Fewer inks. Still your design. · 42 seconds · Original music</p></dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+  </main>
+  <footer><a href="/" class="footer-logo">OVERPRINT<span>↗</span></a><p>A project by Taher Sohagpurwala & Harsh Agrawal</p><span>MAKE EVERY COLOUR COUNT.</span></footer>
+</body>
+</html>
